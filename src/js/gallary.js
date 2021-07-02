@@ -37,7 +37,7 @@ function renderGallary(data) {
 
 const searchQueries = getSearchQueries();
 
-async function makeGallary() {
+async function makeGallary(e) {
   let queries = searchQueries();
 
   let currentRequest = queries[queries.length - 1];
@@ -46,6 +46,7 @@ async function makeGallary() {
   imageApiServise.query = refs.gallerySearch.value;
 
   if (refs.gallerySearch.value.trim() === '') {
+    e.preventDefault();
     showMessage('error', 'Please enter your request!');
     return;
   }
