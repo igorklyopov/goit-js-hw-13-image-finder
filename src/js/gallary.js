@@ -37,11 +37,13 @@ function renderGallary(data) {
 
 const searchQueries = getSearchQueries();
 
-async function makeGallary() {
+async function makeGallary(e) {
   let queries = searchQueries();
 
   let currentRequest = queries[queries.length - 1];
   let previousRequest = queries[queries.length - 2];
+
+  e.preventDefault();
 
   imageApiServise.query = refs.gallerySearch.value;
 
