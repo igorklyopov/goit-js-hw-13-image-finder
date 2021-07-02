@@ -7,6 +7,7 @@ import ImageApiServise from '../js/apiService';
 import scrollToView from './scrollToView';
 import Button from './buttonClass';
 import showMessage from './showMessage';
+import showStickySearch from './showStickySearch';
 
 const gallarySearchBtn = new Button('.gallery-search-button');
 const gallaryLoadMoreBtn = new Button('.gallary-load-more');
@@ -17,6 +18,8 @@ refs.galleryResetButton.addEventListener('click', onGalleryResetBtnClick);
 refs.gallerySearchButton.addEventListener('click', makeGallary);
 refs.gallaryLoadMoreButton.addEventListener('click', makeGallary);
 refs.galleryList.addEventListener('click', onGallaryImageClick);
+
+showStickySearch();
 
 function getSearchQueries() {
   let searchQueries = [];
@@ -36,7 +39,7 @@ const searchQueries = getSearchQueries();
 
 async function makeGallary() {
   let queries = searchQueries();
-  console.log(queries);
+
   let currentRequest = queries[queries.length - 1];
   let previousRequest = queries[queries.length - 2];
 

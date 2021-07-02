@@ -1,4 +1,5 @@
 const refs = {
+  gallerySearchForm: document.querySelector('.gallery-search-form'),
   gallerySearch: document.querySelector('.gallery-search-form-input'),
   galleryList: document.querySelector('.gallary-list'),
   gallerySearchButton: document.querySelector('.gallery-search-button'),

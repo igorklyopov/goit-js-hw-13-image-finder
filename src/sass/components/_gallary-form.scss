@@ -1,10 +1,23 @@
 .gallery-search-form {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: top 500ms ease-in-out;
 }
 
-.gallery-search-form-content {
+.gallery-search-form.scroll-up,
+.gallery-search-form:focus-within {
+  top: 0;
+  background-color: var(--primary-transparent-bg-color);
+}
+
+.gallery-search-form.scroll-down {
+  top: -100%;
 }
 
 .gallery-search-form-input-wrap {
