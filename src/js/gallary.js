@@ -16,7 +16,7 @@ const imageApiServise = new ImageApiServise();
 refs.gallerySearch.addEventListener('input', onSearchInput);
 refs.galleryResetButton.addEventListener('click', onGalleryResetBtnClick);
 refs.gallerySearchButton.addEventListener('click', makeGallary);
-refs.gallaryLoadMoreButton.addEventListener('click', makeGallary);
+refs.gallaryLoadMoreButton.addEventListener('click', onLoadMoreBtnClick);
 refs.galleryList.addEventListener('click', onGallaryImageClick);
 
 showStickySearch();
@@ -77,7 +77,6 @@ async function makeGallary(e) {
   refs.loadingDots.classList.add('is-hidden');
 
   renderGallary(dataGallary);
-  scrollToView(refs.gallaryLoadMoreButton);
 }
 
 function onSearchInput() {
@@ -100,4 +99,9 @@ function onGallaryImageClick(e) {
   if (e.target.tagName === 'IMG') {
     largeImageInModal.show();
   }
+}
+
+async function onLoadMoreBtnClick() {
+  await makeGallary();
+  scrollToView(refs.gallaryLoadMoreButton);
 }
